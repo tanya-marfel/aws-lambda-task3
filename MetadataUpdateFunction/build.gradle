@@ -1,0 +1,17 @@
+plugins {
+    id 'java'
+    id "io.freefair.lombok" version "5.2.1"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.amazonaws:aws-lambda-java-core:1.2.0'
+    implementation 'com.amazonaws:aws-lambda-java-events:3.1.0'
+    implementation 'com.amazonaws:aws-java-sdk:1.11.887'
+    implementation 'org.postgresql:postgresql:42.2.18'
+
+    testImplementation 'junit:junit:4.13.1'
+}
