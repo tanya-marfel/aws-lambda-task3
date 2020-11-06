@@ -16,14 +16,22 @@ Parameters:
     Type: String
     Default: aws-image-gallery
     Description: Bucket to use SNS for
+  Runtime:
+    Type: String
+    Default: java11
+    Description: Language runtime name to use for Lambda function execution
+  MemorySize:
+    Type: Number
+    Default: 512
+    Description: Memory capacity for Lambda function execution
 Resources:
   MetadataUpdateFunction:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: MetadataUpdateFunction
       Handler: com.epam.aws.lambda.App::handleRequest
-      Runtime: java11
-      MemorySize: 512
+      Runtime: !Ref Runtime
+      MemorySize: !Ref MemorySize
       VpcConfig:
         SecurityGroupIds:
           - sg-0b4d4276fdc900ee5
